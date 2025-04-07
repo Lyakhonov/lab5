@@ -4,6 +4,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 WORKDIR /app
-COPY src /app
+COPY src /app/src
 
-ENTRYPOINT ["python", "/app/main.py"]
+ENV PYTHONPATH=/app
+ENTRYPOINT ["python", "-m", "src.main"]
